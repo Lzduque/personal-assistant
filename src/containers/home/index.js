@@ -12,11 +12,13 @@ import 'bootstrap';
 import Calendar from '../calendar'
 
 const Home = props => (
-  <div>
+  <div class="container-fluid">
     <h1>Hello, {person}!</h1>
-    {/* input name of user! -> login */}
-    <h2>Good Morning!</h2>
+    {/* input name of user! -> login / now is prompt only */}
+    <h2>{greeting()}!</h2>
     {/* depending the time in the day, say something different! */}
+    <h3>Today is {date()}</h3>
+    {/* give the day */}
 
     <textarea>
       How was your day?
@@ -60,6 +62,82 @@ const Home = props => (
 )
 
 let person = prompt("Please enter your name", "Harry Potter");
+
+let greeting = () => {
+  let today = new Date();
+  let time = today.getHours();
+  let greet = "";
+
+  if (time >= 18) {
+    greet = "Good Night!";
+  } if (time >= 12) {
+    greet = "Good Afternoon!";
+  } else {
+    greet = "Good Morning!";
+  }
+
+  return greet;
+}
+
+let date = () => {
+  let today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth()+1;
+  let year = today.getFullYear();
+
+  if (day === 1 || day === 11 || day === 21 || day === 31) {
+    day += "st";
+  } else if (day === 2 || day === 12 || day === 22){
+    day += "nd";
+  } else if (day === 3 || day === 13 || day === 23){
+    day += "rd";
+  } else {
+    day += "th";
+  }
+
+  switch (month) {
+    case 1:
+      month = "January";
+      break;
+    case 2:
+      month = "February";
+      break;
+    case 3:
+      month = "March";
+      break;
+    case 4:
+      month = "April";
+      break;
+    case 5:
+      month = "May";
+      break;
+    case 6:
+      month = "June";
+      break;
+    case 7:
+      month = "July";
+      break;
+    case 8:
+      month = "August";
+      break;
+    case 9:
+      month = "September";
+      break;
+    case 10:
+      month = "October";
+      break;
+    case 11:
+      month = "November";
+      break;
+    case 12:
+      month = "Dezember";
+      break;
+  }
+
+
+  let date = `${day} ${month} ${year}`;
+  return date;
+}
 
 const mapStateToProps = ({ counter }) => ({
   count: counter.count,

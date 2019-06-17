@@ -13,7 +13,7 @@ import Calendar from '../calendar'
 
 const Home = props => (
   <div>
-    <h1>Hello, name!</h1>
+    <h1>Hello, NAME!</h1>
     {/* input name of user! -> login */}
     <h2>Good Morning!</h2>
     {/* depending the time in the day, say something different! */}

@@ -5,7 +5,7 @@ import Home from '../home'
 const App = () => (
   <div>
     <header>
-      <Link to="/">Home</Link>
+      {/* <Link to="/">Home</Link> */}
     </header>
 
     <main>

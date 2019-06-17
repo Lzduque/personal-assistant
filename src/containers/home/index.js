@@ -13,7 +13,7 @@ import Calendar from '../calendar'
 
 const Home = props => (
   <div>
-    <h1>Hello, NAME!</h1>
+    <h1>Hello, {person}!</h1>
     {/* input name of user! -> login */}
     <h2>Good Morning!</h2>
     {/* depending the time in the day, say something different! */}
@@ -22,7 +22,7 @@ const Home = props => (
       How was your day?
     </textarea>
 
-    <h3>The weather today in CITY is..</h3>
+    <h3>The weather today in CITY is...</h3>
     <p>Sunny, Temp max = 27°C, no rain</p>
     {/* throught the profile or geolocation find the city and then finde the weather for the day */}
     <p>Don't forget to wear something light and bring your water bottle!</p>
@@ -58,6 +58,8 @@ const Home = props => (
     </p> */}
   </div>
 )
+
+let person = prompt("Please enter your name", "Harry Potter");
 
 const mapStateToProps = ({ counter }) => ({
   count: counter.count,

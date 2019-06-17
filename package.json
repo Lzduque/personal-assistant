@@ -17,6 +17,8 @@
   "dependencies": {
     "connected-react-router": "^4.5.0",
     "history": "^4.9.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "^5.1.1",

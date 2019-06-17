@@ -8,13 +8,36 @@ import {
   decrement,
   decrementAsync
 } from '../../modules/counter'
+import 'bootstrap';
+import Calendar from '../calendar'
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
-    <p>Count: {props.count}</p>
+    <h1>Hello, name!</h1>
+    {/* input name of user! -> login */}
+    <h2>Good Morning!</h2>
+    {/* depending the time in the day, say something different! */}
 
-    <p>
+    <textarea>
+      How was your day?
+    </textarea>
+
+    <h3>The weather today in CITY is..</h3>
+    <p>Sunny, Temp max = 27°C, no rain</p>
+    {/* throught the profile or geolocation find the city and then finde the weather for the day */}
+    <p>Don't forget to wear something light and bring your water bottle!</p>
+    {/* based on the temperature and humidity, change the emssage */}
+
+    <h3>The traffic today is...</h3>
+    <p>Medium</p>
+    <p>Commute time varies between XX and XX</p>
+    {/* based on the traffic report, return traffic in general and news */}
+
+    <h3>Next events you have planned</h3>
+    {/* acess user data and return next 3 events planned */}
+
+    <Calendar />
+    {/* <p>
       <button onClick={props.increment}>Increment</button>
       <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
         Increment Async
@@ -32,7 +55,7 @@ const Home = props => (
       <button onClick={() => props.changePage()}>
         Go to about page via redux
       </button>
-    </p>
+    </p> */}
   </div>
 )
 

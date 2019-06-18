@@ -10,16 +10,25 @@ import {
 } from '../../modules/counter'
 import 'bootstrap';
 import Calendar from '../calendar'
+import night from './night.jpg'
+import dusk from './dusk.jpeg'
+import afternoon from './afternoon.jpeg'
+import midday from './midday.jpeg'
+import morning from './morning.jpg'
 
 const Home = props => (
   <div class="container-fluid">
-    <h1>Hello, {person}!</h1>
-    {/* input name of user! -> login / now is prompt only */}
-    <h2>{greeting()}!</h2>
-    {/* depending the time in the day, say something different! */}
-    <h3>Today is {date()}</h3>
-    {/* give the day */}
+    <div class="greetings">
+      <img src={backgroundImg()} class="img-fluid" alt="Responsive image" />
 
+      <h1>Hello, {person}!</h1>
+      {/* input name of user! -> login / now is prompt only */}
+      <h2>{greeting()}!</h2>
+      {/* depending the time in the day, say something different! */}
+      <h3>Today is {date()}</h3>
+      {/* give the day */}
+
+    </div>
     <textarea>
       How was your day?
     </textarea>
@@ -63,6 +72,26 @@ const Home = props => (
 
 let person = prompt("Please enter your name", "Harry Potter");
 
+let backgroundImg = () => {
+  let today = new Date();
+  let time = today.getHours();
+
+  let img = "";
+
+  if (time >= 21) {
+    img = night;
+  } else if (time >= 18) {
+    img = dusk;
+  } else if (time >= 16) {
+    img = afternoon;
+  } else if (time >= 11) {
+    img = midday;
+  } else {
+    img = morning;
+  }
+  return img;
+}
+
 let greeting = () => {
   let today = new Date();
   let time = today.getHours();
@@ -70,7 +99,7 @@ let greeting = () => {
 
   if (time >= 18) {
     greet = "Good Night!";
-  } if (time >= 12) {
+  } else if (time >= 12) {
     greet = "Good Afternoon!";
   } else {
     greet = "Good Morning!";
